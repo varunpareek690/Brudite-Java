@@ -33,7 +33,17 @@ public class TechStack {
     }
 
     public void setDescription(String description) {
+
         this.description = description;
     }
+    @Override
+    public String toString() {
+        return "TechStack{" +
+                "techStackId=" + techStackId +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
 }
 
