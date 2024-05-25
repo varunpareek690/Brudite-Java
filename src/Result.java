@@ -1,4 +1,5 @@
 import java.util.Date;
+import java.util.Objects;
 
 public class Result {
     private int resultId;
@@ -46,13 +47,13 @@ public class Result {
         this.assignment = assignment;
     }
 
-//    public Trainer getTrainer() {
-//        return trainer;
-//    }
-//
-//    public void setTrainer(Trainer trainer) {
-//        this.trainer = trainer;
-//    }
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
 
     public int getScore() {
         return score;
@@ -76,5 +77,31 @@ public class Result {
 
     public void setSubmissionDate(Date submissionDate) {
         this.submissionDate = submissionDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Result result = (Result) o;
+        return resultId == result.resultId && score == result.score && Objects.equals(student, result.student) && Objects.equals(assignment, result.assignment) && Objects.equals(trainer, result.trainer) && Objects.equals(feedback, result.feedback) && Objects.equals(submissionDate, result.submissionDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(resultId, student, assignment, trainer, score, feedback, submissionDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Result{" +
+                "resultId=" + resultId +
+                ", student=" + student +
+                ", assignment=" + assignment +
+                ", trainer=" + trainer +
+                ", score=" + score +
+                ", feedback='" + feedback + '\'' +
+                ", submissionDate=" + submissionDate +
+                '}';
     }
 }

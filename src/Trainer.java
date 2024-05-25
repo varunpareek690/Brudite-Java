@@ -1,14 +1,12 @@
 import java.util.List;
+import java.util.Objects;
+
 public class Trainer {
     private int trainerId;
     private String name;
     private String email;
     private long contactNumber;
     private List<TechStack> techStackList;
-
-    public Trainer(){
-
-    }
 
     public Trainer(int trainerId, String name, String email, long contactNumber, List<TechStack> techStackList) {
         this.trainerId = trainerId;
@@ -62,14 +60,24 @@ public class Trainer {
     }
 
 
-//    public List<TechStack> getTechStackList() {
-//        return techStackList;
-//    }
-//
-//    public void setTechStackList(List<TechStack> techStackList) {
-//        this.techStackList = techStackList;
-//    }
+    public List<TechStack> getTechStackList() {
+        return techStackList;
+    }
 
+    public void setTechStackList(List<TechStack> techStackList) {
+        this.techStackList = techStackList;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Trainer trainer = (Trainer) o;
+        return trainerId == trainer.trainerId && contactNumber == trainer.contactNumber && Objects.equals(name, trainer.name) && Objects.equals(email, trainer.email) && Objects.equals(techStackList, trainer.techStackList);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(trainerId, name, email, contactNumber, techStackList);
+    }
 }

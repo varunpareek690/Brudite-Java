@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class TechStack {
     private int techStackId;
     private String name;
@@ -45,5 +47,17 @@ public class TechStack {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TechStack techStack = (TechStack) o;
+        return techStackId == techStack.techStackId && Objects.equals(name, techStack.name) && Objects.equals(description, techStack.description);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(techStackId, name, description);
+    }
 }
 
