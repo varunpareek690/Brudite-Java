@@ -115,12 +115,27 @@ public class Main {
 
 
 
+    // Results data
+        ResultData resultData = new ResultData();
 
+        Result result1 = new Result(1, s1, assignment1, 90, "Good job!", new Date());
+        Result result2 = new Result(2, s2, assignment2, 85, "Well done!", new Date());
+        Result result3 = new Result(3, s3, assignment4, 12, "Well done!", new Date());
+        Result result4 = new Result(4, s4, assignment3, 33, "Well done!", new Date());
+        Result result5 = new Result(5, s5, assignment1, 71, "Well done!", new Date());
+        Result result6 = new Result(6, s6, assignment2, 32, "Well done!", new Date());
+        resultData.addResult(result1);
+        resultData.addResult(result2);
+        resultData.addResult(result3);
+        resultData.addResult(result4);
+        resultData.addResult(result5);
+        resultData.addResult(result6);
 
+        List<Result> varunResults = resultData.getResultsByStudent(s2);
+        String resultJson = JsonUtil.toJson(varunResults);
+        System.out.println(resultJson);
+        System.out.println("Results for Varun: " + resultJson);
 
-
-
-//        System.out.println(t2.toString());
 
     }
 }
