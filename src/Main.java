@@ -1,4 +1,6 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 public class Main {
     public static void main(String[] args) {
@@ -16,32 +18,103 @@ public class Main {
 //        List<Student> studArray;
 
 
-        // Creating 3 TrainersTrainer t1 = new Trainer(10,"Gajodhar","gajodhar.com",881);
+
         // List of TechStack
-
-
-
         TechStack ts1 = new TechStack(1,"HTML","Description");
         TechStack ts2 = new TechStack(3,"Java","Description");
         TechStack ts3 = new TechStack(2,"CSS","Description");
-
+        TechStack ts4 = new TechStack(4,"SpringBoot","Description");
+        TechStack ts5 = new TechStack(5,"NodeJS","Description");
         ArrayList<TechStack> techStackArrayList = new ArrayList<>();
         techStackArrayList.add(ts1);
         techStackArrayList.add(ts2);
         techStackArrayList.add(ts3);
+        techStackArrayList.add(ts4);
+        techStackArrayList.add(ts5);
 
 
+        // List of Trainers
         Trainer t1 = new Trainer(13,"Rinku","rinku.com",321,techStackArrayList);
         Trainer t2 = new Trainer(12,"Honey","honey.com",883,techStackArrayList);
-        Trainer t3 = new Trainer(11,"Gajudhar Singh Paliwal","gajo3har.com",883,techStackArrayList);
+        Trainer t3 = new Trainer(11,"Gajodhar Singh Paliwal","gajo3har.com",883,techStackArrayList);
+        ArrayList<Trainer> trainerList = new ArrayList<>();
+        trainerList.add(t1);
+        trainerList.add(t2);
+        trainerList.add(t3);
 
 
-        Question q1 = new Question();
+        //Some answer keys
+        Answer correctAnswer1 = new Answer(1, "Correct Answer 1", true);
+        Answer correctAnswer2 = new Answer(2, "Correct Answer 2", true);
+        Answer correctAnswer3 = new Answer(3, "Correct Answer 3", true);
+        Answer correctAnswer4 = new Answer(4, "Correct Answer 4", true);
 
-        Assignment as1 = new Assignment();
-        Assignment as2 = new Assignment();
-        Assignment as3 = new Assignment();
-        Assignment as4 = new Assignment();
+
+        // Answers List
+        List<Answer> answers1 = new ArrayList<>();
+        answers1.add(new Answer(1, "Answer 1", true));
+        answers1.add(new Answer(2, "Answer 2", false));
+        answers1.add(new Answer(3, "Answer 3", false));
+        answers1.add(new Answer(4, "Answer 4", false));
+
+        List<Answer> answers2 = new ArrayList<>();
+        answers2.add(new Answer(1, "Answer 1", false));
+        answers2.add(new Answer(2, "Answer 2", true));
+        answers2.add(new Answer(3, "Answer 3", false));
+        answers2.add(new Answer(4, "Answer 4", false));
+
+        List<Answer> answers3 = new ArrayList<>();
+        answers3.add(new Answer(1, "Answer 1", false));
+        answers3.add(new Answer(2, "Answer 2", false));
+        answers3.add(new Answer(3, "Answer 3", true));
+        answers3.add(new Answer(4, "Answer 4", false));
+
+        List<Answer> answers4 = new ArrayList<>();
+        answers4.add(new Answer(1, "Answer 1", false));
+        answers4.add(new Answer(2, "Answer 2", false));
+        answers4.add(new Answer(3, "Answer 3", false));
+        answers4.add(new Answer(4, "Answer 4", true));
+
+
+
+        // 4 Question for each assignment
+        // total assignments = 4;
+
+        List<Question> questions1 = new ArrayList<>();
+        questions1.add(new Question(1, 10, answers1, correctAnswer1, ts1, null));
+        questions1.add(new Question(2, 10, answers2, correctAnswer2, ts2, null));
+        questions1.add(new Question(3, 10, answers3, correctAnswer3, ts3, null));
+        questions1.add(new Question(4, 10, answers4, correctAnswer4, ts4, null));
+
+        List<Question> questions2 = new ArrayList<>();
+        questions2.add(new Question(5, 10, answers1, correctAnswer1, ts5, null));
+        questions2.add(new Question(6, 10, answers2, correctAnswer2, ts1, null));
+        questions2.add(new Question(7, 10, answers3, correctAnswer3, ts4, null));
+        questions2.add(new Question(8, 10, answers4, correctAnswer4, ts2, null));
+
+        List<Question> questions3 = new ArrayList<>();
+        questions1.add(new Question(9, 10, answers1, correctAnswer1, ts3, null));
+        questions1.add(new Question(10, 10, answers2, correctAnswer2, ts4, null));
+        questions1.add(new Question(11, 10, answers3, correctAnswer3, ts1, null));
+        questions1.add(new Question(12, 10, answers4, correctAnswer4,ts5, null));
+
+        List<Question> questions4 = new ArrayList<>();
+        questions2.add(new Question(13, 10, answers1, correctAnswer1, ts2, null));
+        questions2.add(new Question(14, 10, answers2, correctAnswer2, ts2, null));
+        questions2.add(new Question(15, 10, answers3, correctAnswer3, ts3, null));
+        questions2.add(new Question(16, 10, answers4, correctAnswer4, ts1, null));
+
+
+
+        // Assignments
+        Assignment assignment1 = new Assignment(1, "Java Basics", "Introduction to Java", new Date(), questions1);
+        Assignment assignment2 = new Assignment(2, "Advanced Java", "Java Advanced Concepts", new Date(), questions2);
+        Assignment assignment3 = new Assignment(3, "Python Basics", "Introduction to Python", new Date(), questions3);
+        Assignment assignment4 = new Assignment(4, "Advanced Python", "Python Advanced Concepts", new Date(), questions4);
+
+
+
+
 
 
 
