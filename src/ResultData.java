@@ -39,6 +39,36 @@ public class ResultData {
                 .orElse(null);
     }
 
+    public void rankingList(){
+        results.stream()
+                .sorted(Comparator.comparingInt(Result::getScore).reversed())
+                .map(result->result.getStudent().getName())
+                .forEach(System.out::println);
+    }
+    public List<Student> studentsLessThan60(){
+        return results.stream()
+                .filter(result->result.getScore() <60)
+                .map(Result::getStudent)
+                .collect(Collectors.toList());
+
+    }
+
+    public void printResultsForStudent(ResultData resultData,String studentName) {
+
+        Student student = results.stream()
+                .map(Result::getStudent)
+                .filter(s -> s.getName().equals(studentName))
+                .findFirst()
+                .orElse(null);
+
+
+            List<Result> studentResults = resultData.getResultsByStudent(student);
+            String resultJson = JsonUtil.toJson(studentResults);
+            System.out.println(resultJson);
+            System.out.println("Results for " + studentName + ": " + resultJson);
+
+
+        }
 
 
 

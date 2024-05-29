@@ -6,7 +6,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println();
         Student s1 = new Student(999,"varunpareek.com","Varun",101);
-        Student s2 = new Student(998,"kanupareek.com","Kanu",102);
+        Student s2 = new Student(998,"rohan123.com","Rohan",102);
         Student s3 = new Student(997,"adhirajsingh.com","Adhiraj",103);
         Student s4 = new Student(996,"parasgoyal.com","Paras",104);
         Student s5 = new Student(995,"kanishktiwari.com","Kanishk",105);
@@ -93,16 +93,16 @@ public class Main {
         questions2.add(new Question(8, 10, answers4, correctAnswer4, ts2, null));
 
         List<Question> questions3 = new ArrayList<>();
-        questions1.add(new Question(9, 10, answers1, correctAnswer1, ts3, null));
-        questions1.add(new Question(10, 10, answers2, correctAnswer2, ts4, null));
-        questions1.add(new Question(11, 10, answers3, correctAnswer3, ts1, null));
-        questions1.add(new Question(12, 10, answers4, correctAnswer4,ts5, null));
+        questions3.add(new Question(9, 10, answers1, correctAnswer1, ts3, null));
+        questions3.add(new Question(10, 10, answers2, correctAnswer2, ts4, null));
+        questions3.add(new Question(11, 10, answers3, correctAnswer3, ts1, null));
+        questions3.add(new Question(12, 10, answers4, correctAnswer4,ts5, null));
 
         List<Question> questions4 = new ArrayList<>();
-        questions2.add(new Question(13, 10, answers1, correctAnswer1, ts2, null));
-        questions2.add(new Question(14, 10, answers2, correctAnswer2, ts2, null));
-        questions2.add(new Question(15, 10, answers3, correctAnswer3, ts3, null));
-        questions2.add(new Question(16, 10, answers4, correctAnswer4, ts1, null));
+        questions4.add(new Question(13, 10, answers1, correctAnswer1, ts2, null));
+        questions4.add(new Question(14, 10, answers2, correctAnswer2, ts2, null));
+        questions4.add(new Question(15, 10, answers3, correctAnswer3, ts3, null));
+        questions4.add(new Question(16, 10, answers4, correctAnswer4, ts1, null));
 
 
 
@@ -120,10 +120,10 @@ public class Main {
 
         Result result2 = new Result(2, s2, assignment2, 56, "Well done!", new Date());
         Result result1 = new Result(1, s1, assignment1,100, "Good job!", new Date());
-        Result result3 = new Result(3, s3, assignment4, 12, "Well done!", new Date());
-        Result result4 = new Result(4, s4, assignment3, 33, "Well done!", new Date());
+        Result result3 = new Result(3, s3, assignment4, 85, "Well done!", new Date());
+        Result result4 = new Result(4, s4, assignment3, 99, "Well done!", new Date());
         Result result5 = new Result(5, s5, assignment1, 71, "Well done!", new Date());
-        Result result6 = new Result(6, s6, assignment2, 32, "Well done!", new Date());
+        Result result6 = new Result(6, s6, assignment2, 88, "Well done!", new Date());
         resultData.addResult(result1);
         resultData.addResult(result2);
         resultData.addResult(result3);
@@ -131,11 +131,6 @@ public class Main {
         resultData.addResult(result5);
         resultData.addResult(result6);
 
-        // Testing Purpose
-//        List<Result> varunResults = resultData.getResultsByStudent(s2);
-//        String resultJson = JsonUtil.toJson(varunResults);
-//        System.out.println(resultJson);
-//        System.out.println("Results for Varun: " + resultJson);
 
 
         //HIGHEST PERFORMER METHOD IN RESULTDATA CLASS
@@ -143,9 +138,23 @@ public class Main {
         System.out.println(highestPerformer.getName());
 
 
-        // Second highest
+        // SECOND HIGHEST
         Student secondHighestPerformer = resultData.findSecondHighestPerformer();
         System.out.println(secondHighestPerformer.getName());
+
+        // Ranking List
+        resultData.rankingList();
+
+//         Students who scored less than 60%
+        List<Student> scoreLessThan60 = resultData.studentsLessThan60();
+        scoreLessThan60.forEach(System.out::println);
+
+
+       // Results for Rohan
+        resultData.printResultsForStudent(resultData,"Rohan");
+
+        // Similarly for Varun
+        resultData.printResultsForStudent(resultData,"Varun");
 
 
 
