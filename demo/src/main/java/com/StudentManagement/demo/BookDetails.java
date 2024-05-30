@@ -16,6 +16,10 @@ public class BookDetails {
     @Temporal(TemporalType.DATE)
     private Date publishedDate;
 
+    @ManyToOne
+    @JoinColumn(name = "student_ID")
+    private Student student;
+
     public int getBookId() {
         return bookId;
     }
@@ -46,5 +50,13 @@ public class BookDetails {
 
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 }
