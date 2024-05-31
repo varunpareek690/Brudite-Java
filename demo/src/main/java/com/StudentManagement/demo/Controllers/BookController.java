@@ -45,13 +45,8 @@ public class BookController {
 
     @DeleteMapping("/books/{id}")
     public String deleteBook(@PathVariable int id) {
-        Optional<BookDetails> book = bookRepository.findById(id);
-        if (book.isPresent()) {
-            bookRepository.delete(book.get());
-            return "Book deleted successfully";
-        } else {
-            return "Book not found";
-        }
+       bookRepository.deleteById(id);
+       return "Book deleted successfully";
     }
 
 

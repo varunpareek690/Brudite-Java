@@ -1,13 +1,17 @@
 package com.StudentManagement.demo;
 
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
 
-@Entity
-@Table(name="students")
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+//@Entity
+//@Table(name="students")
+@Document(collection = "Student")
 public class Student {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int studentId;
     private String studentName;
     private int age;

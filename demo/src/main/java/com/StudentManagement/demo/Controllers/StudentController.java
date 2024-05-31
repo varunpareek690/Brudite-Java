@@ -49,12 +49,7 @@ public class StudentController {
 
     @DeleteMapping("/students/{id}")
     public String deleteStudent(@PathVariable int id) {
-        Optional<Student> student = studentRepository.findById(id);
-        if (student.isPresent()) {
-            studentRepository.delete(student.get());
-            return "Student deleted successfully";
-        } else {
-            return "Student not found";
-        }
+        studentRepository.deleteById(id);
+        return "Student deleted successfully";
     }
 }
