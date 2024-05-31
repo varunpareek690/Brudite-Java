@@ -1,23 +1,26 @@
 package com.StudentManagement.demo;
 
-import jakarta.persistence.*;
+//import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
-@Entity
-@Table(name = "books")
+//@Entity
+//@Table(name = "books")
+@Document(collection = "Books")
 public class BookDetails {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int bookId;
     private String bookName;
     private String bookAuthor;
 
-    @Temporal(TemporalType.DATE)
+//    @Temporal(TemporalType.DATE)
     private Date publishedDate;
 
-    @ManyToOne
-    @JoinColumn(name = "student_ID")
+//    @ManyToOne
+//    @JoinColumn(name = "student_ID")
     private Student student;
 
     public int getBookId() {
